@@ -25,7 +25,7 @@ CLOCK_DRIFT_FACTOR = 0.01
 # Section Correct implementation with a single instance
 RELEASE_LUA_SCRIPT = """
     if redis.call("get",KEYS[1]) == ARGV[1] then
-        return redis.call("del",KEYS[1])
+        return redis.call("unlink",KEYS[1])
     else
         return 0
     end
